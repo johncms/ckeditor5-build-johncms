@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>CKEditor 5 Framework – Quick start</title>
+    <link rel="stylesheet" type="text/css" href="https://johncms.com/themes/default/assets/css/app.css">
+</head>
+<body>
+<div class="page_layout pt-4">
+    <form action="">
+        <textarea id="editor" class="form-control">
+            <p>Editor content goes here.</p>
+        </textarea>
+        <button class="btn btn-primary mt-3" id="submit">Submit</button>
+    </form>
+</div>
+
+<script src="build/ckeditor.js"></script>
+<script src="build/translations/ru.js"></script>
+
+<script>
+    var config = {
+        simpleUpload: {
+            // The URL that the images are uploaded to.
+            uploadUrl: '/',
+
+            // Enable the XMLHttpRequest.withCredentials property.
+            withCredentials: false,
+            savedCallback: function (file) {
+            },
+        },
+        language: 'ru'
+    };
+    ClassicEditor
+        .create(document.querySelector('#editor'), config)
+        .then(editor => {
+            //CKEditorInspector.attach(editor);
+        })
+        .catch(error => {
+            console.error(error.stack);
+        });
+</script>
+</body>
+</html>
